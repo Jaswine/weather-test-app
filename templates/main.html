@@ -10,17 +10,34 @@
 <body>
     <div class="content">
         <div class="pre_form">
-            <form action="" method="POST" id="weatherForm">
+            <form action="" method="POST">
+                {% csrf_token %}
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                  <input type="text" name="city" placeholder="Enter your city" required/>
                   <label for="name" class="form__label">City</label>
                 </div>
             </form>
         </div>
 
-        <div class="weather" id="weather"></div>
+        {% if last_city %}
+             <form action="" method="POST" class="last__search">
+                {% csrf_token %}
+                Last search:
+                <input type="text" style="display: none" name="city" value="{{ last_city }}" required/>
+                <button>{{ last_city }}</button>
+            </form>
+        {% endif %}
+
+        <div class="weather">
+            {% if data %}
+                <img src="https://openweathermap.org/img/wn/{{ data.weather.0.icon }}@2x.png" alt="Weather" />
+                <div class="weather__content">
+                    <h2>{{ data.main.temp }}℃</h2>
+                    <p>{{ data.weather.0.main }}: {{ data.weather.0.description }}</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
 
-    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
