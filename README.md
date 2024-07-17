@@ -19,6 +19,8 @@
 
 ## Как это всё запустит
 
+### С помощью терминала:
+
 Создаем виртуальное окружение 
 
 > python3 -m venv .venv
@@ -39,4 +41,11 @@
 
 > python3 manage.py runserver 8080
 
+### С помощью PyCharm
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
 
