@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="content">
+        <div class="pre_form">
+            <form action="" method="POST" id="weatherForm">
+                <div class="form__group field">
+                  <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                  <label for="name" class="form__label">City</label>
+                </div>
+            </form>
+        </div>
+
+        <div class="weather" id="weather"></div>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
